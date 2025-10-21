@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <style>
+        body { font-family: Arial; margin: 40px; background: #f9f9f9; }
+        h1 { color: #333; }
+        form { background: #fff; padding: 20px; border-radius: 10px; width: 400px; }
+        input { width: 100%; padding: 6px; margin: 5px 0; }
+        button { background: #4CAF50; color: white; padding: 10px; border: none; width: 100%; border-radius: 6px; }
+        p { font-size: 1.1em; color: #222; }
+    </style>
+</head>
+<body>
+    <h1>🏡 House Price Predictor</h1>
+    <form action="/predict" method="POST">
+        <label>Bedrooms:</label><input type="number" name="bedrooms" step="any" required>
+        <label>Bathrooms:</label><input type="number" name="bathrooms" step="any" required>
+        <label>Sqft Living:</label><input type="number" name="sqft_living" step="any" required>
+        <label>Sqft Lot:</label><input type="number" name="sqft_lot" step="any" required>
+        <label>Floors:</label><input type="number" name="floors" step="any" required>
+        <label>Waterfront (0/1):</label><input type="number" name="waterfront" step="any" required>
+        <label>View (0–4):</label><input type="number" name="view" step="any" required>
+        <label>Condition (1–5):</label><input type="number" name="condition" step="any" required>
+        <label>Grade (1–13):</label><input type="number" name="grade" step="any" required>
+        <label>Sqft Above:</label><input type="number" name="sqft_above" step="any" required>
+        <label>Sqft Basement:</label><input type="number" name="sqft_basement" step="any" required>
+        <label>Year Built:</label><input type="number" name="yr_built" required>
+        <label>Year Renovated:</label><input type="number" name="yr_renovated" required>
+        <label>Zipcode:</label><input type="number" name="zipcode" required>
+        <label>Latitude:</label><input type="number" name="lat" step="any" required>
+        <label>Longitude:</label><input type="number" name="long" step="any" required>
+        <label>Sqft Living 15:</label><input type="number" name="sqft_living15" step="any" required>
+        <label>Sqft Lot 15:</label><input type="number" name="sqft_lot15" step="any" required>
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+        <p><strong>{{ prediction_text }}</strong></p>
+    {% endif %}
+</body>
+</html>
