@@ -5,6 +5,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import pickle
+
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
@@ -119,7 +122,10 @@ plt.title("Top 10 Important Features")
 plt.show()
 
 # Save model and scaler
-joblib.dump(rf_model, "model.pkl")
-joblib.dump(scaler, "scaler.pkl")
+with open("model.pkl", "wb") as f:
+    pickle.dump(best_model, f)  # use best_model instead of model
+
+with open("scaler.pkl", "wb") as f:
+    pickle.dump(scaler, f)
 
 print("✅ Model and Scaler saved successfully.")
